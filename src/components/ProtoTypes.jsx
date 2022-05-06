@@ -1,13 +1,17 @@
+import useActions from "../hooks/useActions";
 import useProtoTypes from "../hooks/useProtoTypes";
 
 export default function ProtoTypes(){
 
     const prototypes = useProtoTypes();
-
+    const {addToOrder} = useActions();
     return <main>
         <div className="prototypes">
             {prototypes.map((prototypes) =>{
                 const {id, thumbnail, title, price, desc, pieUrl} = prototypes
+                const click = () => {
+                    addToOrder(id);
+                }
                 return (
                 <div className="prototype" key={id}>
                     <a href={pieUrl} target="_BLANK" rel="noreferrer">
@@ -28,7 +32,7 @@ export default function ProtoTypes(){
                     </a>
                     <div className="prototype__body">
                         <div className="prototype__title">
-                            <div className="btn btn--primary float--right">
+                            <div className="btn btn--primary float--right" onClick={click}>
                                 <i className="icon icon--plus" />
                             </div>
                             {title}
