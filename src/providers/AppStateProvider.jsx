@@ -4,7 +4,13 @@ import AppStateContext from "../context/AppStateContext"
 const AppStateProvider = ({children}) => {
     const [orders, setOrders] = useState([]);
 
-    const addToOrder = useCallback(() => {
+    const addToOrder = useCallback((id) => {
+
+    }, []);
+    const remove = useCallback((id) => {
+
+    }, []);
+    const removeAll = useCallback(() => {
 
     }, []);
 
